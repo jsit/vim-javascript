@@ -28,6 +28,7 @@ syntax match   jsNoise          /[:,;]/
 syntax match   jsDot            /\./ skipwhite skipempty nextgroup=jsObjectProp,jsFuncCall,jsPrototype,jsTaggedTemplate
 syntax match   jsObjectProp     contained /\<\K\k*/
 syntax match   jsFuncCall       /\<\K\k*\ze\s*(/
+syntax match   jsObject         /\<\K\k*\ze\s*\./
 syntax match   jsParensError    /[)}\]]/
 
 " Program Keywords
@@ -355,6 +356,7 @@ if version >= 508 || !exists("did_javascript_syn_inits")
   HiLink jsClassDefinition      jsFuncName
   HiLink jsBlockLabel           Identifier
   HiLink jsBlockLabelKey        jsBlockLabel
+  HiLink jsObject               Identifier
 
   HiLink jsDestructuringBraces     Noise
   HiLink jsDestructuringProperty   jsFuncArgs
